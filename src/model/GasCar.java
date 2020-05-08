@@ -1,3 +1,4 @@
+package model;
 public class GasCar extends Car{
 	private final static int NORMAL = 0;
 	private final static int DIESEL = 1;
@@ -7,18 +8,13 @@ public class GasCar extends Car{
 	private double consumption;
 	private int typeGas;
 	public GasCar(double totalPrice, double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, int type, int doors, boolean windowsType, int typeGas, double capacity, double consumption){
-		super();
+		super(totalPrice,price,tradeMark,model,displacement,mileage,isNew, licensePlate,type,doors,windowsType);
 		this.capacity = capacity;
 		this.consumption = consumption;
-		this.type = type;
+		
 	}
 	
-	public int getType(){
-		return type;
-	}
-	public void setType(int value){
-		type = value;
-	}
+	
 	public double getCapacity(){
 		return capacity;	
 	}

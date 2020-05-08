@@ -1,3 +1,4 @@
+package model;
 public class Car extends Vehicle{
 	private final static int SEDAN = 0;
 	private final static int HUMMER = 1;
@@ -10,7 +11,7 @@ public class Car extends Vehicle{
 	
 	
 	public Car(double totalPrice, double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, int type, int doors, boolean windowsType){
-		super();
+		super(totalPrice,price,tradeMark,model,displacement,mileage,isNew,licensePlate);
 		this.type = type;
 		this.doors = doors;
 		this.windowsType = windowsType;
@@ -25,7 +26,7 @@ public class Car extends Vehicle{
 	public int getDoors(){
 		return doors;
 	}
-	public void setDoors(int value){}{
+	public void setDoors(int value){
 		doors = value;
 	}
 	public boolean getWindowsType(){

@@ -1,3 +1,4 @@
+package model;
 public class MotorCycle extends Vehicle{
 	private final static int STANDAR = 0;
 	private final static int SPORT = 1;
@@ -9,7 +10,7 @@ public class MotorCycle extends Vehicle{
 	private double capacity;
 	private double consumption;
 	public MotorCycle(double totalPrice, double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate,int type, double capacity, double consumption){
-		super();
+		super(totalPrice,price,tradeMark,model,displacement,mileage,isNew,licensePlate);
 		this.type = type;
 		this.capacity = capacity;
 		this.consumption = consumption;
