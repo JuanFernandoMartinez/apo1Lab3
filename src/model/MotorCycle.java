@@ -1,4 +1,5 @@
 package model;
+import java.util.ArrayList;
 public class MotorCycle extends Vehicle{
 	private final static int STANDAR = 0;
 	private final static int SPORT = 1;
@@ -9,8 +10,15 @@ public class MotorCycle extends Vehicle{
 	private int type;
 	private double capacity;
 	private double consumption;
-	public MotorCycle(double totalPrice, double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate,int type, double capacity, double consumption){
+	public MotorCycle(double totalPrice, double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, int type, double capacity, double consumption){
 		super(totalPrice,price,tradeMark,model,displacement,mileage,isNew,licensePlate);
+		this.type = type;
+		this.capacity = capacity;
+		this.consumption = consumption;
+	}
+	
+	public MotorCycle(double totalPrice, double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, ArrayList <Document> documents, int type, double capacity, double consumption){
+		super(totalPrice,price,tradeMark,model,displacement,mileage,isNew,licensePlate,documents);
 		this.type = type;
 		this.capacity = capacity;
 		this.consumption = consumption;

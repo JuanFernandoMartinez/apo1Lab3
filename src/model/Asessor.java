@@ -4,12 +4,14 @@ package model;
 		private String lastName;
 		private String id;
 		private int sells;
+		Client[] clients;
 		
-		public Asessor(String firstName,String lastName, String id, int sells){
+		public Asessor(String firstName,String lastName, String id, int sells, Client[] clients){
 			this.firstName = firstName;
 			this.lastName = lastName;
 			this.id = id;
 			this.sells = sells;
+			this.clients = clients;
 		}
 		
 		public String getFirstName(){
@@ -35,5 +37,11 @@ package model;
 		}
 		public void setSells(int value){
 			sells = value;
+		}
+		public Client[] getClients(){
+			return clients;
+		}
+		public void setClients(Client[] value){
+			clients = value;
 		}
 	}
