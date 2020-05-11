@@ -1,6 +1,6 @@
 package model;
 import java.util.ArrayList;
-public class MotorCycle extends Vehicle{
+public class MotorCycle extends Vehicle implements Consum{
 	private final static int STANDAR = 0;
 	private final static int SPORT = 1;
 	private final static int SCOOTER = 2;
@@ -9,19 +9,19 @@ public class MotorCycle extends Vehicle{
 	
 	private int type;
 	private double capacity;
-	private double consumption;
-	public MotorCycle(double totalPrice, double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, int type, double capacity, double consumption){
+	
+	public MotorCycle(double totalPrice, double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, int type, double capacity){
 		super(totalPrice,price,tradeMark,model,displacement,mileage,isNew,licensePlate);
 		this.type = type;
 		this.capacity = capacity;
-		this.consumption = consumption;
+		
 	}
 	
-	public MotorCycle(double totalPrice, double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, ArrayList <Document> documents, int type, double capacity, double consumption){
+	public MotorCycle(double totalPrice, double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, ArrayList <Document> documents, int type, double capacity){
 		super(totalPrice,price,tradeMark,model,displacement,mileage,isNew,licensePlate,documents);
 		this.type = type;
 		this.capacity = capacity;
-		this.consumption = consumption;
+		
 	}
 	
 	public int getType(){
@@ -36,10 +36,8 @@ public class MotorCycle extends Vehicle{
 	public void setCapacity(double value){
 		capacity = value;
 	}
-	public double getConsumption(){
-		return consumption;
-	}
-	public void setConsumption(double value){
-		consumption = value;
+	public double calculateConsum(){
+		double consum = capacity*(super.getDisplacement()/90);
+		return consum;
 	}
 }

@@ -1,17 +1,24 @@
 package model;
-public class GasCar extends Car implements GasConsumption{
+import model.*;
+public class GasCar extends Car implements Consum{
 	private final static int NORMAL = 0;
 	private final static int DIESEL = 1;
 	private final static int EXTRA = 2;
 	
 	private double capacity;
-	
 	private int typeGas;
-	public GasCar(double totalPrice, double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, int type, int doors, boolean windowsType, int typeGas, double capacity){
-		super(totalPrice,price,tradeMark,model,displacement,mileage,isNew, licensePlate,type,doors,windowsType);
+	
+	
+	public GasCar( double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, int type, int doors, boolean windowsType, int typeGas, double capacity){
+		super(price,tradeMark,model,displacement,mileage,isNew, licensePlate,type,doors,windowsType);
 		this.capacity = capacity;
-		
-		
+		this.typeGas = typeGas;
+	}
+	
+	public GasCar( double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate,ArrayList <Document> documents, int type, int doors, boolean windowsType, int typeGas, double capacity){
+		super(price,tradeMark,model,displacement,mileage,isNew, licensePlate,type,doors,windowsType, documents);
+		this.capacity = capacity;
+		this.typeGas = typeGas;
 	}
 	
 	
@@ -22,10 +29,10 @@ public class GasCar extends Car implements GasConsumption{
 		capacity = value;
 	}
 	
-	public calculateConsumption(){
-		
+	
+	
+	public double calculateConsum(){
+		double consumption = capacity*(super.getDisplacement()/100);
+		return consumption;
 	}
-	
-	
-	
 }

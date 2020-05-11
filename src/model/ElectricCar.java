@@ -1,5 +1,5 @@
 package model;
-public class ElectricCar extends Car{
+public class ElectricCar extends Car implements BatteryConsum{
 	private final static int FASTCHARGE = 0;
 	private final static int NORMAL = 1;
 	
@@ -24,5 +24,15 @@ public class ElectricCar extends Car{
 	}
 	public void setBatteryCapacity(int value){
 		batteryCapacity = value;
+	}
+	
+	public double calculateBatteryConsum(){
+		double consum;
+		if (typeCharge == FASTCHARGE){
+			consum = (batteryCapacity+10)*(super.getDisplacement()/100);
+		}else{
+			consum = (batteryCapacity+10)*(super.getDisplacement()/100);
+		}
+		return consum;
 	}
 }

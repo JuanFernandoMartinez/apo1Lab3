@@ -11,15 +11,15 @@ public class Car extends Vehicle{
 	private boolean windowsType;
 	
 	
-	public Car(double totalPrice, double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, int type, int doors, boolean windowsType){
-		super(totalPrice,price,tradeMark,model,displacement,mileage,isNew,licensePlate);
+	public Car( double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, int type, int doors, boolean windowsType){
+		super(price,tradeMark,model,displacement,mileage,isNew,licensePlate);
 		this.type = type;
 		this.doors = doors;
 		this.windowsType = windowsType;
 	}
 	
-	public Car(double totalPrice, double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate,ArrayList <Document> documents, int type, int doors, boolean windowsType){
-		super(totalPrice,price,tradeMark,model,displacement,mileage,isNew,licensePlate,documents);
+	public Car( double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate,ArrayList <Document> documents, int type, int doors, boolean windowsType){
+		super(price,tradeMark,model,displacement,mileage,isNew,licensePlate,documents);
 		this.type = type;
 		this.doors = doors;
 		this.windowsType = windowsType;

@@ -1,5 +1,5 @@
 package model;
-public class HybridCar extends Car{
+public class HybridCar extends Car implements Consum,BatteryConsum{
 	private final static int E_FASTCHARGE = 0;
 	private final static int E_NORMAL = 1;
 	private final static int G_NORMAL = 0;
@@ -9,15 +9,15 @@ public class HybridCar extends Car{
 	private int  typeCharge;
 	private int batteryCapacity;
 	private double capacity;
-	private double consumption;
+	
 	private int typeGas;
 	
-	public HybridCar(double totalPrice, double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, int type, int doors, boolean windowsType,int typeCharge,int batteryCapacity,double capacity,double consumption, int typeGas){
-		super(totalPrice,price,tradeMark,model,displacement,mileage,isNew,licensePlate,type,doors,windowsType);
+	public HybridCar( double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, int type, int doors, boolean windowsType,int typeCharge,int batteryCapacity,double capacity, int typeGas){
+		super(,price,tradeMark,model,displacement,mileage,isNew,licensePlate,type,doors,windowsType);
 		this.typeCharge = typeCharge;
 		this.batteryCapacity = batteryCapacity;
 		this.capacity = capacity;
-		this.consumption = consumption;
+		
 		this.typeGas = typeGas;
 	}
 	public int getTypeCharge(){
@@ -39,10 +39,19 @@ public class HybridCar extends Car{
 	public void setCapacity(double value){
 		capacity = value;
 	}
-	public double getConsumption(){
-		return consumption;
+	
+	public double calculateConsum(){
+		double consum = capacity*(super.getDisplacement()/110);
+		return consum;
 	}
-	public void setConsumption(double value){
-		consumption = value;
+	public double calculateBatteryConsum(){
+		double consum;
+		if (typeCharge == E_FASTCHARGE){
+			consum = batteryCapacity*(super.getDisplacement()/100);
+		} else{
+			consum = (batteryCapacity+5)*(super.getDisplacement()/100);
+		}
+		return consum;
 	}
+	
 }
