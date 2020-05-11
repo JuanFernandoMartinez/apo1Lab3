@@ -15,8 +15,8 @@ import java.util.*;
 		}
 		
 		
-		/*
-		* Print options destinated to be choosen by the user <br>
+		/**
+		* Prints options destinated to be choosen by the user <br>
 		*
 		* <b>pre:</b> the object company must have been initializated <br>
 		*
@@ -38,7 +38,16 @@ import java.util.*;
 				case 1: addVehicle(); break;
 			}
 		}
-				
+			
+
+		/**
+		* Creates a Vehicle Object <br>
+		*
+		*<b>pre:</b> <br>
+		*
+		*<b>post:</b> creates a vehicle object with the user specifications <br>
+		*
+		*/
 		public void addVehicle(){
 			double price;
 			
@@ -58,6 +67,16 @@ import java.util.*;
 			company.getVehicles().add(vehicle);
 		}	
 		
+		
+		/**
+		*creates a Car Object <br>
+		*
+		*<b>pre:</b>  <br>
+		*
+		*<b>post:</b> creates a Car object with the user specifications <br>
+		*
+		*@return object type car 
+		*/
 		public Car addCar(){
 		    int choice = 0;
 			System.out.println("Elija el tipo de carro que quiere agregar");
@@ -76,6 +95,15 @@ import java.util.*;
 			menu();
 		}
 		
+		/**
+		*creates a GasCar object <br>
+		*
+		*<b>pre:</b> <br>
+		*
+		*<b>post:</b> creates an GasCar object with the information typed by the user <br>
+		*
+		*@return  object type GasCar
+		*/
 		public GasCar addGasCar(){
 			System.out.println("Digite los datos que se le piden a continuación");
 			System.out.println("tipo de automovil; 0. sedan, 1. camioneta");
@@ -115,6 +143,15 @@ import java.util.*;
 			return car;
 		}
 		
+		/**
+		*creates a ElectricCar object <br>
+		*
+		*<b>pre:</b> <br>
+		*
+		*<b>post:</b> creates an ElectricCar object with the information given by the user <br>
+		*
+		*@return  object type ElectricCar
+		*/
 		public ElectricCar addElectricCar(){
 			System.out.println("Digite los datos que se le piden a continuación");
 			System.out.println("tipo de automovil; 0. sedan, 1. camioneta");
@@ -153,6 +190,15 @@ import java.util.*;
 			return car;
 		}
 		
+		/**
+		*creates a HybridCar object <br>
+		*
+		*<b>pre:</b> <br>
+		*
+		*<b>post:</b> creates an HybridCar object with the information customized by the user <br>
+		*
+		*@return  HybridCar object
+		*/
 		public HybridCar addHybridCar(){
 			System.out.println("Digite los datos que se le piden a continuación");
 			System.out.println("tipo de automovil; 0. sedan, 1. camioneta");
@@ -194,7 +240,16 @@ import java.util.*;
 			
 			return car;
 		}
-	
+		
+		/**
+		* Creates a MototrCycle object <br>
+		*
+		* <b>pre:</b> <br>
+		*
+		* <b>post:</b> created a MotorCycle object with the information give by the user <br>
+		*
+		* @return motorcycle object
+		*/
 		public MotorCycle addMotorCycle(){
 			System.out.println("Digite los datos que se le piden a continuación");
 			System.out.println("tipo de motocicleta: 0. standar; 1. sport; 2. scooter; 3. Cross");
