@@ -2,11 +2,11 @@ package ui;
 import model.*;
 import java.util.*;
 	public class Concessionaire{
-		private Scanner sc;;
+		private static  Scanner sc = new Scanner(System.in);
 		private Company company;
 		
 		public Concessionaire(){
-			this.sc = new Scanner(System.in);
+			
 			this.company = new Company("","",0,0);
 		}
 		
@@ -14,8 +14,17 @@ import java.util.*;
 			return company;
 		}
 		
+		
+		/*
+		* Print options destinated to be choosen by the user <br>
+		*
+		* <b>pre:</b> the object company must have been initializated <br>
+		*
+		* <b>post:</b> show in the screen the options 
+		*
+		*/
 		public void menu(){
-			int choice;
+			int choice  = 0;
 			System.out.println("       Bienvenido al menu principal          ");
 			System.out.println("1. Agregar un nuevo vehiculo");
 			System.out.println("2. Guardar informacion de clientes");
@@ -30,7 +39,7 @@ import java.util.*;
 			}
 		}
 				
-		public void addVehicle(Scanner sc){
+		public void addVehicle(){
 			double price;
 			
 			System.out.println("Digite los datos requeridos a continuación");
@@ -39,33 +48,181 @@ import java.util.*;
 			System.out.println("1. Automovil");
 			System.out.println("2. Motocicleta");
 			choice = sc.nextInt(); sc.nextLine();
+			Vehicle vehicle;
 			if (choice == 1){
-				
+				vehicle = addCar();
+			}else{
+				vehicle = addMotorCycle();
 			}
 			
-		public void addCar(){
-		    double choice;
+			company.getVehicles().add(vehicle);
+		}	
+		
+		public Car addCar(){
+		    int choice = 0;
 			System.out.println("Elija el tipo de carro que quiere agregar");
 			System.out.println("1. Carro de gasolina");
 			System.out.println("2. Carro Electrico");
 			System.out.println("3. Carro Hibrido");
 			
+			choice = sc.nextInt(); sc.nextLine();
+			Car car = null;
 			switch(choice){
-				case 1 : break;
-				case 2 : break;
-				case 3 : break;
+				case 1 : car = addGasCar(); break;
+				case 2 : car = addElectricCar(); break;
+				case 3 : car = addHybridCar(); break;
 			}
+			return car;
+			menu();
 		}
 		
-		public void addGasCar(){
+		public GasCar addGasCar(){
 			System.out.println("Digite los datos que se le piden a continuación");
+			System.out.println("tipo de automovil; 0. sedan, 1. camioneta");
+			int type = sc.nextInt(); sc.nextLine();
 			System.out.println("Precio base");
 			double price = sc.nextDouble(); sc.nextLine();
 			System.out.println("Marca");
 			String tradeMark = sc.nextLine();
-			System.out.println("");
-		}
+			System.out.println("Modelo");
+			int model = sc.nextInt(); sc.nextLine();
+			System.out.println("Cilindraje");
+			double displacement = sc.nextDouble();
+			System.out.println("Kilometraje"); sc.nextLine();
+			int mileage = sc.nextInt();
+			System.out.println("¿Es nuevo? (1 = si; 2 = no)");
+			int ch = sc.nextInt(); sc.nextLine();
+			boolean isNew = false;
+			if (ch == 1){
+				isNew = true;
+			}
+			System.out.println("Placa");
+			String licensePlate = sc.nextLine();
+			System.out.println("Tipo de conbustible: 0. normal, 1. diesel, 2. extra");
+			int gasType = sc.nextInt(); sc.nextLine();
+			System.out.println("cantidad de puertas");
+			int doors = sc.nextInt(); sc.nextLine();
+			System.out.println("¿Tiene ventanas electricas?");
+			String win = sc.nextLine();
+			boolean windowType = false;
+			if (win.equalsIgnoreCase("si")){windowType = true;}
+			System.out.println("capacidad de tanque");
+			double capacity = sc.nextDouble();
 			
 			
+			GasCar car = new GasCar(price,tradeMark,model,displacement,mileage,isNew,licensePlate,type, doors,windowType,gasType,capacity);
+			
+			return car;
 		}
+		
+		public ElectricCar addElectricCar(){
+			System.out.println("Digite los datos que se le piden a continuación");
+			System.out.println("tipo de automovil; 0. sedan, 1. camioneta");
+			int type = sc.nextInt(); sc.nextLine();
+			System.out.println("Precio base");
+			double price = sc.nextDouble(); sc.nextLine();
+			System.out.println("Marca");
+			String tradeMark = sc.nextLine();
+			System.out.println("Modelo");
+			int model = sc.nextInt(); sc.nextLine();
+			System.out.println("Cilindraje");
+			double displacement = sc.nextDouble();
+			System.out.println("Kilometraje"); sc.nextLine();
+			int mileage = sc.nextInt();
+			System.out.println("¿Es nuevo? (1 = si; 2 = no)");
+			int ch = sc.nextInt(); sc.nextLine();
+			boolean isNew = false;
+			if (ch == 1){
+				isNew = true;
+			}
+			System.out.println("Placa");
+			String licensePlate = sc.nextLine();
+			System.out.println("Tipo de carga; 0. carga rapida; 1 carga normal");
+			int typeCharge = sc.nextInt(); sc.nextLine();
+			System.out.println("cantidad de puertas");
+			int doors = sc.nextInt(); sc.nextLine();
+			System.out.println("¿Tiene ventanas electricas?");
+			String win = sc.nextLine();
+			boolean windowType = false;
+			if (win.equalsIgnoreCase("si")){windowType = true;}
+			System.out.println("duracion de bateria");
+			int capacity = sc.nextInt();
+			
+			ElectricCar car = new ElectricCar(price,tradeMark,model,displacement,mileage,isNew,licensePlate,type,doors,windowType,typeCharge,capacity);
+			
+			return car;
+		}
+		
+		public HybridCar addHybridCar(){
+			System.out.println("Digite los datos que se le piden a continuación");
+			System.out.println("tipo de automovil; 0. sedan, 1. camioneta");
+			int type = sc.nextInt(); sc.nextLine();
+			System.out.println("Precio base");
+			double price = sc.nextDouble(); sc.nextLine();
+			System.out.println("Marca");
+			String tradeMark = sc.nextLine();
+			System.out.println("Modelo");
+			int model = sc.nextInt(); sc.nextLine();
+			System.out.println("Cilindraje");
+			double displacement = sc.nextDouble();
+			System.out.println("Kilometraje"); sc.nextLine();
+			int mileage = sc.nextInt();
+			System.out.println("¿Es nuevo? (1 = si; 2 = no)");
+			int ch = sc.nextInt(); sc.nextLine();
+			boolean isNew = false;
+			if (ch == 1){
+				isNew = true;
+			}
+			System.out.println("Placa");
+			String licensePlate = sc.nextLine();
+			System.out.println("Tipo de conbustible: 0. normal, 1. diesel, 2. extra");
+			int gasType = sc.nextInt(); sc.nextLine();
+			System.out.println("cantidad de puertas");
+			int doors = sc.nextInt(); sc.nextLine();
+			System.out.println("¿Tiene ventanas electricas?");
+			String win = sc.nextLine();
+			boolean windowType = false;
+			if (win.equalsIgnoreCase("si")){windowType = true;}
+			System.out.println("capacidad de tanque");
+			double capacity = sc.nextDouble();
+			System.out.println("duracion de bateria");
+			int batteryCapacity = sc.nextInt();
+			System.out.println("Tipo de carga; 0. carga rapida; 1 carga normal");
+			int typeCharge = sc.nextInt(); sc.nextLine();
+			
+			HybridCar car = new HybridCar(price,tradeMark,model,displacement,mileage,isNew,licensePlate,type,doors,windowType,typeCharge,batteryCapacity,capacity,gasType);
+			
+			return car;
+		}
+	
+		public MotorCycle addMotorCycle(){
+			System.out.println("Digite los datos que se le piden a continuación");
+			System.out.println("tipo de motocicleta: 0. standar; 1. sport; 2. scooter; 3. Cross");
+			int type = sc.nextInt(); sc.nextLine();
+			System.out.println("Precio base");
+			double price = sc.nextDouble(); sc.nextLine();
+			System.out.println("Marca");
+			String tradeMark = sc.nextLine();
+			System.out.println("Modelo");
+			int model = sc.nextInt(); sc.nextLine();
+			System.out.println("Cilindraje");
+			double displacement = sc.nextDouble();
+			System.out.println("Kilometraje"); sc.nextLine();
+			int mileage = sc.nextInt();
+			System.out.println("¿Es nuevo? (1 = si; 2 = no)");
+			int ch = sc.nextInt(); sc.nextLine();
+			boolean isNew = false;
+			if (ch == 1){
+				isNew = true;
+			}
+			System.out.println("Placa");
+			String licensePlate = sc.nextLine();
+			System.out.println("Capacidad del tanque");
+			double capacity = sc.nextDouble();
+			
+			MotorCycle moto = new MotorCycle(price,tradeMark,model, displacement,mileage, isNew,licensePlate,type,capacity);
+			
+			return moto;
+		}
+	
 	}

@@ -1,5 +1,6 @@
 package model;
 import model.*;
+import java.util.ArrayList;
 public class GasCar extends Car implements Consum{
 	private final static int NORMAL = 0;
 	private final static int DIESEL = 1;
@@ -16,7 +17,7 @@ public class GasCar extends Car implements Consum{
 	}
 	
 	public GasCar( double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate,ArrayList <Document> documents, int type, int doors, boolean windowsType, int typeGas, double capacity){
-		super(price,tradeMark,model,displacement,mileage,isNew, licensePlate,type,doors,windowsType, documents);
+		super(price,tradeMark,model,displacement,mileage,isNew, licensePlate,documents, type,doors,windowsType);
 		this.capacity = capacity;
 		this.typeGas = typeGas;
 	}

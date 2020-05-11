@@ -13,7 +13,7 @@ public class HybridCar extends Car implements Consum,BatteryConsum{
 	private int typeGas;
 	
 	public HybridCar( double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, int type, int doors, boolean windowsType,int typeCharge,int batteryCapacity,double capacity, int typeGas){
-		super(,price,tradeMark,model,displacement,mileage,isNew,licensePlate,type,doors,windowsType);
+		super(price,tradeMark,model,displacement,mileage,isNew,licensePlate,type,doors,windowsType);
 		this.typeCharge = typeCharge;
 		this.batteryCapacity = batteryCapacity;
 		this.capacity = capacity;

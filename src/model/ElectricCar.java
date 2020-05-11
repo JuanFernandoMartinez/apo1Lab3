@@ -1,4 +1,5 @@
 package model;
+import java.util.ArrayList;
 public class ElectricCar extends Car implements BatteryConsum{
 	private final static int FASTCHARGE = 0;
 	private final static int NORMAL = 1;
@@ -7,8 +8,14 @@ public class ElectricCar extends Car implements BatteryConsum{
 	private int  typeCharge;
 	private int batteryCapacity;
 	
-	public ElectricCar(double totalPrice, double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, int type, int doors, boolean windowsType,int typeCharge,int batteryCapacity){
-		super(totalPrice,price,tradeMark,model,displacement,mileage,isNew,licensePlate,type,doors,windowsType);
+	public ElectricCar( double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, int type, int doors, boolean windowsType,int typeCharge,int batteryCapacity){
+		super(price,tradeMark,model,displacement,mileage,isNew,licensePlate,type,doors,windowsType);
+		this.typeCharge = typeCharge;
+		this.batteryCapacity = batteryCapacity;
+	}
+	
+	public ElectricCar( double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate,ArrayList <Document> documents, int type, int doors, boolean windowsType,int typeCharge,int batteryCapacity){
+		super(price,tradeMark,model,displacement,mileage,isNew,licensePlate,documents, type,doors,windowsType);
 		this.typeCharge = typeCharge;
 		this.batteryCapacity = batteryCapacity;
 	}

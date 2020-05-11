@@ -10,15 +10,15 @@ public class MotorCycle extends Vehicle implements Consum{
 	private int type;
 	private double capacity;
 	
-	public MotorCycle(double totalPrice, double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, int type, double capacity){
-		super(totalPrice,price,tradeMark,model,displacement,mileage,isNew,licensePlate);
+	public MotorCycle( double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, int type, double capacity){
+		super(price,tradeMark,model,displacement,mileage,isNew,licensePlate);
 		this.type = type;
 		this.capacity = capacity;
 		
 	}
 	
-	public MotorCycle(double totalPrice, double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, ArrayList <Document> documents, int type, double capacity){
-		super(totalPrice,price,tradeMark,model,displacement,mileage,isNew,licensePlate,documents);
+	public MotorCycle( double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, ArrayList <Document> documents, int type, double capacity){
+		super(price,tradeMark,model,displacement,mileage,isNew,licensePlate,documents);
 		this.type = type;
 		this.capacity = capacity;
 		
