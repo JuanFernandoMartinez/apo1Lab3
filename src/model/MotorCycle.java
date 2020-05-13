@@ -40,4 +40,9 @@ public class MotorCycle extends Vehicle implements Consum{
 		double consum = capacity*(super.getDisplacement()/90);
 		return consum;
 	}
+	
+	@Override 
+	public String getInfo(){
+		String info = "";
+	}
 }

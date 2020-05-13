@@ -67,7 +67,7 @@ import java.util.ArrayList;
 		public void setVehicles(ArrayList<Vehicle> value){
 			vehicles = value;
 		}
-		public ArrayList<Asessor> getEmplyees(){
+		public ArrayList<Asessor> getEmployees(){
 			return employees;
 		}
 		public void setEmployees(ArrayList<Asessor> value){

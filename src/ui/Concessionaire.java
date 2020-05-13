@@ -37,6 +37,7 @@ import java.util.*;
 			switch (choice){
 				case 1: addVehicle(); break;
 				case 2: addClient(); break;
+				case 3: addEmployee(); break;
 			}
 		}
 			
@@ -282,12 +283,27 @@ import java.util.*;
 			return moto;
 		}
 	
-	
+		/**
+		*Adds a Client object to company <br>
+		*
+		*<b>pre</b> the object company must be initializated <br>
+		*
+		*<b>post:</b> adds a Client object to the client ArrayList in the Company object <br>
+		*/
 		public void addClient(){
 			
 			this.company.getClients().add(createClient());
 		}
 		
+		/**
+		*Creates a Client Object <br>
+		*
+		*<b>pre:</b> <br>
+		*
+		*<b>post:</b> returns a Client object created with custom information <br>
+		*
+		*@return Client object
+		*/
 		public Client createClient(){
 			System.out.println("Por favor ingrese la siguiente informacion ");
 			System.out.println("Nombres");
@@ -306,10 +322,28 @@ import java.util.*;
 			return cl;
 		}
 	
+	
+		/**
+		*Adds a new Assesor to company <br>
+		*
+		*<b>pre:</b> the object company must be innitializated <br>
+		*
+		*<b>post:</b> adds an object Asessor to the employees Arraylist in the company object <br> 
+		*/
 		public void addEmployee(){
-			
+			company.getEmployees().add(createEmployee());
 		}
 		
+		
+		/**
+		*creates an Asessor object 
+		*
+		*<b>pre:</b> <br>
+		*
+		*<b>post:</b> returns an Employee (Asessor object)
+		*
+		*@return Asessor object with custom information
+		*/
 		public Asessor createEmployee(){
 			System.out.println("Ingrese la información solicitada a continuacion");
 			System.out.println("Nombres");
@@ -319,7 +353,35 @@ import java.util.*;
 			System.out.println("Identificacion");
 			String id = sc.nextLine();
 			System.out.println("Numero de ventas");
-			Int sells = sc.nextInt(); sc.nextLine();
+			int sells = sc.nextInt(); sc.nextLine();
+			System.out.println("asigna los clientes");
+			Client[] cls = chooseClient();
 			
+			Asessor asessor = new Asessor(firstName,lastName,id,sells,cls);
+			
+			return asessor;
 		}
+		
+		/**
+		*creates an Array with 10 clients <br>
+		*
+		*<b>pre:</b> 
+		*
+		*<b>post:</b> returns an Client Array with 10 Client objects <br>
+		*
+		* @return Array -> Client[10] 
+		*/
+		public Client[] chooseClient(){
+			Client[] clients = new Client[100];
+			for (int i = 0; i < company.getClients().size(); i++){
+				System.out.println(i+" "+company.getClients().get(i).getFirstName()+" "+ company.getClients().get(i).getFirstName());
+			}
+			System.out.println("digite los numeros correspondientes a los clientes que desea asignar al asesor");
+			for (int i = 0; i < 10; i++){
+				clients[i] = company.getClients().get(sc.nextInt());
+			}
+			return clients;
+		}
+	
+		
 	}

@@ -20,7 +20,7 @@ public class Client{
 
 // getters and setters
 
-  public String getFristName(){
+  public String getFirstName(){
     return firstName;
   }
   public void setFirstName(String value){

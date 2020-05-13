@@ -36,4 +36,14 @@ public class GasCar extends Car implements Consum{
 		double consumption = capacity*(super.getDisplacement()/100);
 		return consumption;
 	}
+	
+	@Override
+	public String getInfo(){
+		String info = "****"+"\n"+"Carro Electrico"+"\n"+"precio: "+super.getPrice()+"\n"+"marca: "+super.getTradeMark()+"\n"+"modelo: "+super.getModel()+"\n"+"Cilindraje: "+super.getDisplacement()+"\n";
+		info = info+ "kilometraje: "+super.getMileage()+"\n"+"placa: "+super.getLicensePlate()+"\n"+"typo de auto: "+super.getType()+"\n"+"Numero de puertas: "+super.getDoors()+"\n";
+		if (super.getWindowsType()){info = info+"ventanas electricas"+"\n";}else{info = info + "ventanas normales"+"\n";}
+		if (typeGas == 0){info += "tipo de combustible: Normal"+"\n";}else if (typeGas == 1) {info += "tipo de combustible: Diesel"+"\n";} else {info += "tipo de combustible: Extra"+"\n";}
+		info = info + "capacidad de tanque: "+capacity+"\n";
+		return info;
+	}
 }

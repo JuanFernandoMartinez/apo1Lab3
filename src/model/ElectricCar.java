@@ -42,4 +42,17 @@ public class ElectricCar extends Car implements BatteryConsum{
 		}
 		return consum;
 	}
+	
+	
+	@Override
+	public String getInfo(){
+		String info = "****"+"\n"+"Carro Electrico"+"\n"+"precio: "+super.getPrice()+"\n"+"marca: "+super.getTradeMark()+"\n"+"modelo: "+super.getModel()+"\n"+"Cilindraje: "+super.getDisplacement()+"\n";
+		info = info+ "kilometraje: "+super.getMileage()+"\n"+"placa: "+super.getLicensePlate()+"\n"+"typo de auto: "+super.getType()+"\n"+"Numero de puertas: "+super.getDoors()+"\n";
+		if (super.getWindowsType()){info = info+"ventanas electricas"+"\n";}else{info = info + "ventanas normales"+"\n";}
+		
+		if (typeCharge == FASTCHARGE){info = info+"carga rapida"+"\n";}else {info = info+ "Carga normal"+"\n";}
+		info = info + "tiempo de carga: "+batteryCapacity + "\n";
+		
+		return info;
+	}
 }

@@ -183,26 +183,65 @@
     }
 
 	/**
+	* returns the licensePlate <br>
 	*
+	*<b>pre:</b> <br>
+	*
+	*<b>post:</b> returns the String licensePlate <br>
+	*
+	*@return String licensePlate
 	*/
     public String getLicensePlate(){
       return licensePlate;
     }
 	
+	
+	/**
+	*change the value of the licensePlate <br>
+	*
+	*<b>pre:</b> <br>
+	*
+	*<b>post:</b> change the value of the String licensePlate <br>
+	*
+	*@param value  String with the new value of licensePlate
+	*/
     public void setLicensePlate(String value){
       licensePlate = value;
     }
 	
+	/**
+	*returns documents <br>
+	*
+	*<b>pre:</b> <br>
+	*
+	*<b>post:</b> returns the ArrayList documents <br>
+	*
+	*@return ArrayList<Document> documents
+	*/
 	public ArrayList <Document> getDocuments(){
 		return documents;
 	}
 	
+	/**
+	*change the value of documents <br>
+	*
+	*<b>pre:</b> <br>
+	*
+	*<b>post:</b> change the value of the ArrayList<Document> documents <br>
+	*
+	*@param value ArrayList<Document> with the new value of documents 
+	*/
 	public void setDocuments (ArrayList <Document> value){
 		documents = value;
 	}
 	
 	public void calculateTotalPrice(){
 		totalPrice = price;
+	}
+	
+	public String getInfo(){
+		String info = " ";
+		return info;
 	}
 
  }
