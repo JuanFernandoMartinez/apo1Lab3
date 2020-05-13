@@ -382,6 +382,28 @@ import java.util.*;
 			}
 			return clients;
 		}
+		
+		public void showCatalog(){
+			System.out.println("1. filtrar por tipo");
+			System.out.println("2. filtrar por precio");
+			System.out.println("3. ver todos");
+			System.out.println("ingrese el numero de la opcion deseada ");
+		}
+		
+		public void showTypes(){
+			System.out.println("1. carros Electricos");
+			System.out.println("2. carros de gasolina");
+			System.out.println("3. carros hibridos");
+			System.out.println("4. motocicletas");
+			
+			int choice = sc.nextInt();
+			 switch (choice){
+				 case 1: for (int i = 0; i< company.getVehicles().size(); i++){if (company.getVehicles().get(i) instanceof ElectricCar){company.getVehicles().get(i).getInfo();}} break;
+				 case 2: for (int i = 0; i< company.getVehicles().size(); i++){if (company.getVehicles().get(i) instanceof GasCar){company.getVehicles().get(i).getInfo();}} break;
+				 case 3: for (int i = 0; i< company.getVehicles().size(); i++){if (company.getVehicles().get(i) instanceof HybridCar ){company.getVehicles().get(i).getInfo();}} break;
+				 case 4: for (int i = 0; i< company.getVehicles().size(); i++){if (company.getVehicles().get(i) instanceof MotorCycle ){company.getVehicles().get(i).getInfo();}} break;
+			 }
+		}
 	
 		
 	}

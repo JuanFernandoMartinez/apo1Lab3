@@ -236,7 +236,7 @@
 	}
 	
 	public void calculateTotalPrice(){
-		totalPrice = price;
+		
 	}
 	
 	public String getInfo(){

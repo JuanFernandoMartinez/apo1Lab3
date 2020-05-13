@@ -74,4 +74,12 @@ import java.util.ArrayList;
 			employees = value;
 		}
 		
+		public String getCatalog(){
+			String catalog = "";
+			for (int i = 0; i < vehicles.size();i++){
+				catalog += vehicles.get(i).getInfo()+"\n";
+			}
+			return catalog;
+		}
+		
 	}

@@ -41,8 +41,11 @@ public class MotorCycle extends Vehicle implements Consum{
 		return consum;
 	}
 	
-	@Override 
+	
+	@Override
 	public String getInfo(){
-		String info = "";
+		String info = "****"+"\n"+"Carro Electrico"+"\n"+"precio: "+super.getPrice()+"\n"+"marca: "+super.getTradeMark()+"\n"+"modelo: "+super.getModel()+"\n"+"Cilindraje: "+super.getDisplacement()+"\n";
+		info = info+ "kilometraje: "+super.getMileage()+"\n"+"placa: "+super.getLicensePlate()+"\n"+"Capacidad de taque: "+capacity+"\n";
+		return info;
 	}
 }
