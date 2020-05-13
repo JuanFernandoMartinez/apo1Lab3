@@ -27,7 +27,7 @@ import java.util.*;
 			int choice  = 0;
 			System.out.println("       Bienvenido al menu principal          ");
 			System.out.println("1. Agregar un nuevo vehiculo");
-			System.out.println("2. Guardar informacion de clientes");
+			System.out.println("2. agregar clientes");
 			System.out.println("3. Guardar información de Empleados");
 			System.out.println("4. Recomendar vehiculos");
 			System.out.println("5. Salir");
@@ -36,6 +36,7 @@ import java.util.*;
 			
 			switch (choice){
 				case 1: addVehicle(); break;
+				case 2: addClient(); break;
 			}
 		}
 			
@@ -91,8 +92,9 @@ import java.util.*;
 				case 2 : car = addElectricCar(); break;
 				case 3 : car = addHybridCar(); break;
 			}
-			return car;
 			menu();
+			return car;
+			
 		}
 		
 		/**
@@ -280,4 +282,44 @@ import java.util.*;
 			return moto;
 		}
 	
+	
+		public void addClient(){
+			
+			this.company.getClients().add(createClient());
+		}
+		
+		public Client createClient(){
+			System.out.println("Por favor ingrese la siguiente informacion ");
+			System.out.println("Nombres");
+			String firstName = sc.nextLine();
+			System.out.println("Apellidos");
+			String lastName = sc.nextLine();
+			System.out.println("identificacion");
+			String id = sc.nextLine();
+			System.out.println("Numero de telefono");
+			String phoneNumber = sc.nextLine();
+			System.out.println("Correo electronico");
+			String email = sc.nextLine();
+			
+			Client cl = new Client(firstName,lastName,id,phoneNumber,email);
+			
+			return cl;
+		}
+	
+		public void addEmployee(){
+			
+		}
+		
+		public Asessor createEmployee(){
+			System.out.println("Ingrese la información solicitada a continuacion");
+			System.out.println("Nombres");
+			String firstName = sc.nextLine();
+			System.out.println("Apellidos");
+			String lastName = sc.nextLine();
+			System.out.println("Identificacion");
+			String id = sc.nextLine();
+			System.out.println("Numero de ventas");
+			Int sells = sc.nextInt(); sc.nextLine();
+			
+		}
 	}
