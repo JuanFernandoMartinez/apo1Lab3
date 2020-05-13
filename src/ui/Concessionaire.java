@@ -403,6 +403,38 @@ import java.util.*;
 				 case 3: for (int i = 0; i< company.getVehicles().size(); i++){if (company.getVehicles().get(i) instanceof HybridCar ){company.getVehicles().get(i).getInfo();}} break;
 				 case 4: for (int i = 0; i< company.getVehicles().size(); i++){if (company.getVehicles().get(i) instanceof MotorCycle ){company.getVehicles().get(i).getInfo();}} break;
 			 }
+			 System.out.println("si desea comprar alguno de los autos escriba 1 seguido de un espacio y el indice de eleccion de vehiculo");
+				System.out.println("si desea volve al menú dijite 0");
+				int choice = sc.nextInt();
+				if (choice == 1){
+					choice = sc.nextInt();
+					company.getVehicles().remove(company.getVehicles().get(choice));
+					System.out.println("la venta ha sido exitosa");
+				}else{
+					menu();
+				}
+		}
+		
+		public void showPrices(){
+			System.out.println("Digite el valor de su presupuesto");
+			double money = sc.nextDouble();
+			
+			for (int i = 0; i < company.getVehicles().size();i++){
+				if (company.getVehicles().get(i).calculateTotalPrice() <= money){
+				System.out.println(i+"\n");
+				company.getVehicles().get(i).getInfo();
+				}
+				System.out.println("si desea comprar alguno de los autos escriba 1 seguido de un espacio y el indice de eleccion de vehiculo");
+				System.out.println("si desea volve al menú dijite 0");
+				int choice = sc.nextInt();
+				if (choice == 1){
+					choice = sc.nextInt();
+					company.getVehicles().remove(company.getVehicles().get(choice));
+					System.out.println("la venta ha sido exitosa");
+				}else{
+					menu();
+				}
+			}
 		}
 	
 		

@@ -55,4 +55,29 @@ public class ElectricCar extends Car implements BatteryConsum{
 		
 		return info;
 	}
+	
+	@Override
+	public double calculateTotalPrice(){
+		boolean haveSoat = false;
+		for (int i = 0; i<super.getDocuments().size();i++){
+			if (super.getDocuments().get(i) instanceof Soat && super.getDocuments().get(i).getYear()== 2020){
+				haveSoat = true;
+			}
+			
+			if (!haveSoat){
+				super.setTotalPrice(super.getPrice()+500000);
+			
+			}
+			
+			if (super.getIsNew()== false){
+				super.setTotalPrice(super.getTotalPrice()+super.getPrice()*0.2);
+			}
+			
+			
+			
+			
+		}
+		double finalPrice = super.getTotalPrice();
+		return finalPrice;
+	}
 }

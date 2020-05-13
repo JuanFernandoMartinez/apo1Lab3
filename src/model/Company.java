@@ -7,6 +7,7 @@ import java.util.ArrayList;
 		private int sells;
 		private ArrayList<Client> clients;
 		private ArrayList<Vehicle> vehicles;
+		private ArrayList<Vehicle> oldCars;
 		private ArrayList<Asessor> employees;
 		
 		
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 			this.clients = new ArrayList <Client>();
 			this.vehicles = new ArrayList <Vehicle>();
 			this.employees = new ArrayList<Asessor>();
+			this.oldCars = new ArrayList<Vehicle>();
 			
 		}
 		public Company(String name, String nit, double totalRewards, int sells,ArrayList<Client>clients, ArrayList<Vehicle> vehicles, ArrayList<Asessor> employees){
@@ -80,6 +82,17 @@ import java.util.ArrayList;
 				catalog += vehicles.get(i).getInfo()+"\n";
 			}
 			return catalog;
+		}
+		
+		public void registerOldCars(){
+			for (int i = 0; i<vehicles.size(); i++){
+				if (vehicles.get(i) instanceof Car){
+					if (vehicles.get(i).getIsNew() == true){
+						oldCars.add(vehicles.get(i));
+						
+					}
+				}
+			}
 		}
 		
 	}

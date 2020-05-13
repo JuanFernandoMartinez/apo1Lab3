@@ -235,8 +235,29 @@
 		documents = value;
 	}
 	
-	public void calculateTotalPrice(){
-		
+	
+	public double getTotalPrice(){
+		return totalPrice;
+	}
+	
+	public void setTotalPrice(double value){
+		totalPrice = value;
+	}
+	
+	public double calculateTotalPrice(){
+		boolean haveSoat = false;
+		for (int i = 0; i<documents.size();i++){
+			if (documents.get(i) instanceof Soat && documents.get(i).getYear()== 2020){
+				haveSoat = true;
+			}
+			
+			if (haveSoat){
+				totalPrice = price+500000;
+			}
+			
+			
+		}
+		return totalPrice;
 	}
 	
 	public String getInfo(){

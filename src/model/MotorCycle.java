@@ -48,4 +48,16 @@ public class MotorCycle extends Vehicle implements Consum{
 		info = info+ "kilometraje: "+super.getMileage()+"\n"+"placa: "+super.getLicensePlate()+"\n"+"Capacidad de taque: "+capacity+"\n";
 		return info;
 	}
+	
+	@Override
+	public double calculateTotalPrice(){
+		super.setTotalPrice(super.getPrice()+super.getPrice()*0.04);
+		
+		if (super.getIsNew() != true){
+			super.setTotalPrice(super.getTotalPrice()-super.getTotalPrice()*0.02);
+		}
+		double finalPrice = super.getTotalPrice();
+		
+		return finalPrice;
+	}
 }
