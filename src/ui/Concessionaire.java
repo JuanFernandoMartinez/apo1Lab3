@@ -67,6 +67,8 @@ import java.util.*;
 			}
 			
 			company.getVehicles().add(vehicle);
+			
+			menu();
 		}	
 		
 		
@@ -293,6 +295,7 @@ import java.util.*;
 		public void addClient(){
 			
 			this.company.getClients().add(createClient());
+			menu();
 		}
 		
 		/**
@@ -332,6 +335,7 @@ import java.util.*;
 		*/
 		public void addEmployee(){
 			company.getEmployees().add(createEmployee());
+			menu();
 		}
 		
 		
@@ -383,6 +387,15 @@ import java.util.*;
 			return clients;
 		}
 		
+		
+		/**
+		*show the catalog of the vehicles <br>
+		*
+		*<b>pre:</b> <br>
+		*
+		*<b>post:</b> print the catalog bassed on the chosen filter <br>
+		*
+		*/
 		public void showCatalog(){
 			System.out.println("1. filtrar por tipo");
 			System.out.println("2. filtrar por precio");
@@ -390,6 +403,14 @@ import java.util.*;
 			System.out.println("ingrese el numero de la opcion deseada ");
 		}
 		
+		/**
+		*show vehicles by type <br>
+		*
+		*<b>pre:</b> <br>
+		*
+		*<b>post:</b> print the vehicles by type <br>
+		*
+		*/
 		public void showTypes(){
 			System.out.println("1. carros Electricos");
 			System.out.println("2. carros de gasolina");
@@ -415,6 +436,14 @@ import java.util.*;
 				}
 		}
 		
+		
+		/**
+		*show vehicles filter by price 
+		*
+		*<b>pre:</b> <br>
+		*
+		*<b>post:</b> print information of the vehicles based on price <br>
+		*/
 		public void showPrices(){
 			System.out.println("Digite el valor de su presupuesto");
 			double money = sc.nextDouble();
@@ -424,7 +453,9 @@ import java.util.*;
 				System.out.println(i+"\n");
 				company.getVehicles().get(i).getInfo();
 				}
-				System.out.println("si desea comprar alguno de los autos escriba 1 seguido de un espacio y el indice de eleccion de vehiculo");
+				
+			}
+			System.out.println("si desea comprar alguno de los autos escriba 1 seguido de un espacio y el indice de eleccion de vehiculo");
 				System.out.println("si desea volve al menú dijite 0");
 				int choice = sc.nextInt();
 				if (choice == 1){
@@ -434,7 +465,6 @@ import java.util.*;
 				}else{
 					menu();
 				}
-			}
 		}
 	
 		

@@ -235,7 +235,9 @@
 		documents = value;
 	}
 	
-	
+	/**
+	*
+	*/
 	public double getTotalPrice(){
 		return totalPrice;
 	}

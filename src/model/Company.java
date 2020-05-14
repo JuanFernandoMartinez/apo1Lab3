@@ -1,6 +1,9 @@
 package model;
 import java.util.ArrayList;
+
+
 	public class Company{
+		
 		private String name;
 		private String nit;
 		private double totalRewards;
@@ -11,6 +14,18 @@ import java.util.ArrayList;
 		private ArrayList<Asessor> employees;
 		
 		
+		/**
+		*creates a company object <br>
+		*
+		*<b>pre:</b> <br>
+		*
+		*<b>post:</b> creates a new object Company with empty clients, empty employees, empty vehicles <br>
+		*
+		*@param name String with the name of the company; !null !empty 
+		*@param nit code of the company; !null !empty
+		*@param totalRewards all money collected by the company; double != 0
+		*@param sells quantity of sold vehicles 
+		*/
 		public Company(String name, String nit, double totalRewards, int sells){
 			this.name = name;
 			this.nit = nit;
@@ -22,6 +37,22 @@ import java.util.ArrayList;
 			this.oldCars = new ArrayList<Vehicle>();
 			
 		}
+		
+		/**
+		*creates a company object <br>
+		*
+		*<b>pre:</b> <br>
+		*
+		*<b>post:</b> creates a new object Company  <br>
+		*
+		*@param name String with the name of the company; !null !empty 
+		*@param nit code of the company; !null !empty
+		*@param totalRewards all money collected by the company; double != 0
+		*@param sells quantity of sold vehicles 
+		*@param vehicles ArrayList type Vehicle with the vehicles of the company  
+		*@param clients ArrayList type Client with the information of the clients
+		*@param employees ArrayList type Asessor with the information of the employees 
+		*/
 		public Company(String name, String nit, double totalRewards, int sells,ArrayList<Client>clients, ArrayList<Vehicle> vehicles, ArrayList<Asessor> employees){
 			this.name = name;
 			this.nit = nit;
@@ -32,6 +63,8 @@ import java.util.ArrayList;
 			this.employees = employees;
 			
 		}
+		
+		
 		public String getName(){
 			return name;
 		}
@@ -76,6 +109,15 @@ import java.util.ArrayList;
 			employees = value;
 		}
 		
+		/**
+		*returs information about all Vehicles of the company <br>
+		*
+		*<b> pre: </b> the vehicles ArrayList must be initializated <br>
+		*
+		*<b> post:</b> returns information of all vehicles in the ArrayList vehicles <br>
+		*
+		*@return String with the info about all vehicles 
+		*/
 		public String getCatalog(){
 			String catalog = "";
 			for (int i = 0; i < vehicles.size();i++){
@@ -84,6 +126,14 @@ import java.util.ArrayList;
 			return catalog;
 		}
 		
+		
+		/**
+		*save the old cars in the oldCars ArrayList <br>
+		*
+		*<b>pre:</b> the oldCars ArrayList Must be initializated <br>
+		*
+		*<b>post:</b> move the oldCars for vehicles ArrayList to oldCars ArrayList <br>
+		*/
 		public void registerOldCars(){
 			for (int i = 0; i<vehicles.size(); i++){
 				if (vehicles.get(i) instanceof Car){

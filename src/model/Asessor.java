@@ -6,6 +6,19 @@ package model;
 		private int sells;
 		Client[] clients;
 		
+		/**
+		*creates an Asessor object <br>
+		*
+		*<b>pre:</b> <br>
+		*
+		*<b>post:</b> creates a new Asessor object <br>
+		*
+		*@param firstName String with the fisrt name of the employee, !null, !empty
+		*@param lastName String with the last name of the employee, !null, !empty
+		*@param id identification card of the employee, double != 0
+		*@param sells quantity of sold vehicles, Integer
+		*@param clients Array with client objects 
+		*/
 		public Asessor(String firstName,String lastName, String id, int sells, Client[] clients){
 			this.firstName = firstName;
 			this.lastName = lastName;
