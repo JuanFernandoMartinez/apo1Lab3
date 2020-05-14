@@ -1,4 +1,5 @@
 package model;
+import java.util.ArrayList;
 public class HybridCar extends Car implements Consum,BatteryConsum{
 	private final static int E_FASTCHARGE = 0;
 	private final static int E_NORMAL = 1;

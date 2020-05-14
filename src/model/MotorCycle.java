@@ -49,6 +49,8 @@ public class MotorCycle extends Vehicle implements Consum{
 	*@param isNew boolean which represent if the vehicle is new or old; NEW = true; USED = false
 	*@param licensePlate it represents the unic code of the Vehicle; !null and !empty
 	*@param documents ArrayList with the documents of the Vehicle; !null and !Empty
+	*@param type if the motorcycle is normal, sport, scooter or cross
+	*@param capacity is the capacity of tank 
 	*/
 	public MotorCycle( double price, String tradeMark, int model, double displacement, int mileage,boolean isNew, String licensePlate, ArrayList <Document> documents, int type, double capacity){
 		super(price,tradeMark,model,displacement,mileage,isNew,licensePlate,documents);
@@ -69,6 +71,16 @@ public class MotorCycle extends Vehicle implements Consum{
 	public void setCapacity(double value){
 		capacity = value;
 	}
+	
+	/**
+	*calculate the value of the consume <br>
+	*
+	*<b>pre:</b> <br>
+	*
+	*<b>post:</b> returns the consume of gas <br>
+	*
+	*@return the consume of gas
+	*/
 	public double calculateConsum(){
 		double consum = capacity*(super.getDisplacement()/90);
 		return consum;

@@ -426,10 +426,10 @@ import java.util.*;
 			 }
 			 System.out.println("si desea comprar alguno de los autos escriba 1 seguido de un espacio y el indice de eleccion de vehiculo");
 				System.out.println("si desea volve al menú dijite 0");
-				int choice = sc.nextInt();
-				if (choice == 1){
+				int choiceOne = sc.nextInt();
+				if (choiceOne == 1){
 					choice = sc.nextInt();
-					company.getVehicles().remove(company.getVehicles().get(choice));
+					company.getVehicles().remove(company.getVehicles().get(choiceOne));
 					System.out.println("la venta ha sido exitosa");
 				}else{
 					menu();
