@@ -9,7 +9,19 @@ public class Client{
   private String email;
 
 
-// constructor
+  /**
+  *creates a Client object <br>
+  *
+  *<b>pre:</b> <br>
+  *
+  *<b>post:</b> creates a new Client object <br>
+  *
+  *@param firstName String with the first name of the client !null !empty
+  *@param lastName String with the last name of the client !null !empty
+  *@param identificationCard String with the identification Card of the client !null !empty 
+  *@param phoneNumber String with the phone number of the client !null !empty
+  *@param email String with the e-mail of the client !null !empty
+  */
   public Client(String firstName, String lastName, String identificationCard, String phoneNumber, String email){
     this.firstName = firstName;
     this.lastName = lastName;

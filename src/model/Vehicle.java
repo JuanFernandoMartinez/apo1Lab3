@@ -236,16 +236,41 @@
 	}
 	
 	/**
+	*returns total price <br>
 	*
+	*<b>pre:</b> <br>
+	*
+	*<b>post:</b> returns the value of total price <br>
+	*
+	*@return totalPrice
 	*/
 	public double getTotalPrice(){
 		return totalPrice;
 	}
 	
+	/**
+	*change the value of total price <br>
+	*
+	*<b>pre:</b> <br>
+	*
+	*<b>post:</b> modify the value of total price <br>
+	*
+	*@param value double with the new total price
+	*/
 	public void setTotalPrice(double value){
 		totalPrice = value;
 	}
 	
+	
+	/**
+	*calculate the totalPrice <br>
+	*
+	*<b>pre:</b> price must be initializated <br>
+	*
+	*<b>post:</b> calculate totalprice based on some conditions <br>
+	*
+	*@return totalPrice
+	*/
 	public double calculateTotalPrice(){
 		boolean haveSoat = false;
 		for (int i = 0; i<documents.size();i++){
